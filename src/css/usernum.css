@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*{
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.inline{
+    display: inline-block;
+}
+
+.reqcontent{
+    margin-top: 6rem;
+}
+
+.usernum_1{
+    position: relative;
+    width: 40rem;
+    margin: 1rem 0;
+}
+
+.buttons{
+    position: absolute;
+    left: 30rem;
+    top: 0.5rem;
+    padding: 0.7rem;
+    background: linear-gradient(180deg, #8985FF 0%, #2019E1 169.32%);
+    box-shadow: inset 0 0 0.2rem #A5A2FF;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s all ease-out;
+}
+
+.buttons:hover{
+    background: white;
+    color: #2019E1;
+}
+
+.my_numbers{
+    margin-bottom: 0.8rem;
+}
+
+.un_total_items{
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    padding: 0.2rem;
+    background: #EEEFF7;
+    border-radius: 0.5rem;
+}
+
+.mynumber_card{
+    width: 41rem;
+    position: relative;
+    border: 0.1rem solid rgba(196, 196, 196, 0.87);
+    height: 4.7rem;
+    border-radius: 0.5rem;
+}
+
+.mynumber_card img{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.mynumber_1{
+    position: absolute;
+    left: 5rem;
+    top: 1.6rem;
+}
+
+.mynumber_2{
+    position: absolute;
+    left: 20rem;
+    top: 1rem;
+}
+
+.mynumber_3{
+    position: absolute;
+    left: 20rem;
+    top: 2.5rem;
+}
+
+.mint_button{
+    position: absolute;
+    top: 1rem;
+    left: 35rem;
+    background: white;
+    border: 0.15rem solid #2019E1;
+    color: #2019E1;
+
+}
+

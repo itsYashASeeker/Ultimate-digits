@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Sen&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.reqbg{
+    position: relative;
+    background: white;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    /* height: 100vh; */
+    /* height: 100vh; */
+    width: 100vw;
+    max-width: 100vw;
+}
+
+.navbar2 .getYourNumber{
+    display: none;
+}
+
+.navbar2 .logout{
+    display: block;
+}
+
+.reqcontent{
+    /* position:absolute; */
+    margin-top: 4rem;
+    width: 100vw;
+    margin-bottom: 8rem;
+    /* background: wheat; */
+    color: black;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    font-family: "Inter", sans-serif;
+}
+
+.askcontent{
+    margin: 1.5rem 0;
+}
+
+.askcontent *{
+    margin-top: 0.5rem;
+}
+
+.makeBold{
+    font-weight: 600;
+}
+
+.inputnum{
+    border: 0.2rem solid rgba(19, 18, 40, 0.08);
+    background: white;
+    box-shadow: 0 0 0.2rem rgba(16, 24, 40, 0.05);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    transition: 0.2s all ease-out;
+}
+
+.inputnum *{
+    display: inline-block;
+    margin: 0 0.3rem;
+}
+
+.inputnum input{
+    width: 25rem;
+    border: none;
+}
+
+.inputnum input:focus{
+    outline: none;
+}
+
+.inputnum:focus-within{
+    border: 0.2rem solid rgba(19, 18, 40, 0.759);
+}
+
+.inputnum_button{
+    padding: 0.5rem;
+    color: white;
+    background: linear-gradient(180deg, #8985FF 0%, #2019E1 169.32%);
+    box-shadow: inset 0rem 0rem 0.2rem #A5A2FF;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+}
+
+.inputnum_button:hover{
+    background: whitesmoke;
+    color: #2019E1;
+}
+
+.cardBox{
+    position: relative;
+    background: white;
+    box-shadow: 0 0 0.2rem rgba(16, 24, 40, 0.05);
+    border: 0.1rem solid rgba(19, 18, 40, 0.08);
+    border-radius: 0.5rem;
+    width: 37rem;
+    height:3.3rem;
+    padding: 0.7rem 0.8rem;
+    margin: 0.5rem 0;
+}
+
+.r1c1{
+    position: absolute;
+    left: 1rem;
+}
+
+.r1c2{
+    position: absolute;
+    right: 15rem;
+}
+
+.like i{
+    font-size: 1.2rem;
+}
+
+.like{
+    position: absolute;
+    right: 10rem;
+    top: 1.6rem;
+    background: none;
+    cursor: pointer;
+}
+
+.like:focus i{
+    color: red;
+}
+
+.fa-circle-exclamation{
+    color: orange;
+}
+
+
+.r2c1{
+    position: absolute;
+    left: 1rem;
+    top: 2.5rem;
+}
+
+.r2c2{
+    position: absolute;
+    top: 2.5rem;
+    right: 15rem;
+}
+
+.notAvailLabel{
+    font-size: 0.8rem;
+    color: #FE7A21;
+    background: #FDF3EC;
+    border-radius: 1rem;
+    padding: 0.3rem;
+}
+
+.AvailLabel{
+    font-size: 0.8rem;
+    color: #027A48;
+    background: #ECFDF3;
+    border-radius: 1rem;
+    padding: 0.3rem;
+
+}
+
+.availHeader{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    /* position: relative;
+    left: -15rem; */
+}
+
+.avail_buynow{
+    position: absolute;
+    right: 2.8rem;
+    top: 1.2rem;
+}
+

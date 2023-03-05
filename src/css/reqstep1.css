@@ -1,0 +1,71 @@
+.step1Content{
+    margin-top: 3rem;
+    /* background: wheat; */
+}
+
+.step1Content p{
+    margin: 0.5rem 0;
+}
+
+.expandBox{
+    width: 48rem;
+    margin: 1.5rem 0;
+}
+
+.claimMyNumber{
+    width: 50rem;
+    background: linear-gradient(180deg, #8985FF 0%, #2019E1 169.32%);
+    box-shadow: inset 0 0 0.5rem #A5A2FF;
+    border-radius: 0.5rem;
+    padding: 0.6rem 0;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.2s all ease-out;
+}
+
+.claimMyNumber:hover{
+    color: #2019E1;
+    background: whitesmoke;
+}
+
+.remove_num{
+    background: white;
+    color: #2019E1;
+    font-size: 1rem;
+}
+
+
+.step_process{
+    margin-top: 2rem;
+    width: 50rem;
+    /* background: wheat; */
+    /* font-weight: 550; */
+}
+
+.step_process *{
+    display: inline-block;
+}
+
+.steps{
+    background: #ECECEF;
+    padding: 0.6rem 0.8rem;
+    border-radius: 50%;
+    margin: 1rem 0;
+}
+
+.step_line{
+    border-top: 0.15rem dotted blue;
+    width: 21.5rem;
+}
+
+.step_desc{
+    margin: 0 21.6rem;
+}
+
+.current_process{
+    background: #6366E9;
+    color: white;
+    font-weight: 600;
+}
+

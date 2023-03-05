@@ -1,0 +1,26 @@
+.VSignupEmailUpperBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.VSignupEmailUpperBlock img{
+    margin-top: 1rem;
+    width: 2rem;
+    /* height: 2rem; */
+}
+
+.VSUBEmail_title{
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.VSUBEmail_2{
+    font-size: 0.9rem;
+}
+
+.makeBold{
+    font-weight: 590;
+}
