@@ -73,10 +73,13 @@
     .navbar2 a{
         top: 0.5rem;
         left: 20vw;
-        
     }
     .navbar2 img{
         width: 60vw;
+    }
+    .navbar2 button{
+        top: 3rem;
+        left: 10vw;
     }
 
 }

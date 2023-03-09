@@ -17,13 +17,6 @@
     max-width: 100vw;
 }
 
-.navbar2 .getYourNumber{
-    display: none;
-}
-
-.navbar2 .logout{
-    display: block;
-}
 
 .reqcontent{
     /* position:absolute; */

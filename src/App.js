@@ -7,6 +7,9 @@ import Reqnum from "./pages/lin/reqnum.js";
 import Reqstep1 from "./pages/lin/reqstep1";
 import Thankyou from "./pages/lin/thankyou.js";
 import Usernum from "./pages/lin/usernum.js";
+import ChooseWallet from "./pages/lin/chooseWallet.js";
+import MintConfirm from "./pages/lin/MintConfirm.js";
+import MintInProgress from "./pages/lin/MintInProgress.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -19,8 +22,11 @@ function App() {
         <Route path="/signup-with-email/verification" element={<VSignupEmail />} />
         <Route path="/request-number" element={<Reqnum/>} />
         <Route path="/request-number/step1" element={<Reqstep1/>} />
-        <Route path="/request-number/success" element={<Thankyou/>} />
+        <Route path="/request-number/step2/success" element={<Thankyou/>} />
         <Route path="/my-numbers" element={<Usernum/>} />
+        <Route path="/request-number/step3/choose-wallet" element={<ChooseWallet />} />
+        <Route path="/request-number/step3/confirm-mint" element={<MintConfirm />} />
+        <Route path="/request-number/step3/mint-in-progress" element={<MintInProgress />} />
       </Routes>
     </BrowserRouter>
   );

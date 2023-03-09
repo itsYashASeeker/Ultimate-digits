@@ -7,13 +7,18 @@
 }
 
 
-.fa-cart-shopping{
+.logo_thanks{
     font-size: 2rem;
     color: #6366E9;
 }
 
 .thankCard{
     height: 14rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
 
 .thank_title{

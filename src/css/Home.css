@@ -177,6 +177,24 @@ body{
     /* box-shadow: 0 0 0.9rem white; */
 }
 
+.purple_gradient_button{
+    background: linear-gradient(180deg, #8985FF 0%, #2019E1 169.32%);
+    border: 0.1rem solid rgba(174, 174, 188, 0.3);
+
+    box-shadow: 0 0 0.1rem rgba(16, 24, 40, 0.05);
+    border-radius: 0.5rem;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: 0.1s all ease-out;
+    font-size: 1rem;
+}
+
+.purple_gradient_button:hover{
+    background: white;
+    color:#2019E1;
+}
+
 
 @media (max-width: 500px) {
     .navbar button{

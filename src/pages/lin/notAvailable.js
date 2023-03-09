@@ -1,10 +1,10 @@
 import React from "react";
 import "../../css/reqnum.css";
 
-function NAvailable(){
+function NAvailable(props){
     return(
         <div className="cardBox">
-            <p className="r1c1 makeBold">+999 2121 2121 2121</p>
+            <p className="r1c1 makeBold">+999 {props.num}</p>
             <p className="r1c2 makeBold">US$0</p>
             <p className="r2c1 notAvailLabel">Not Available<i className="fa-solid fa-triangle-exclamation" /></p>
             <p className="r2c2">+999</p>

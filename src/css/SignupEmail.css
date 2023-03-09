@@ -16,7 +16,7 @@ body{
     height: 100vh;
     max-height: 100vh;
 
-    position: fixed;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;

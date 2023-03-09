@@ -4,12 +4,32 @@ import iphone from "../../img/iphone.png";
 import logo from "../../img/logo.png";
 import call1 from "../../img/call1.png";
 import lowerArc from "../../img/lower_arc.png"; 
-
-function getNumber(){
-    console.log("get your number");
-}
+import {Magic} from "magic-sdk";
+import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home(){
+
+    const navigate = useNavigate();
+
+    let magic = new Magic("sk_live_6E45B0FD150D57DC");
+
+    const render = async() =>{
+        const isLoggedIn = await magic.user.isLoggedIn();
+        return isLoggedIn;
+    }
+
+    const getNumber = () =>{
+        
+        if(render()){
+            navigate("/request-number");
+        }
+        else{
+            navigate("/signup");
+        }
+    }
+
+
     return(
         <div className="Homebg">
             <div className="navbar">
@@ -28,7 +48,7 @@ function Home(){
                     <p className="l_U2_2">Mobile Number</p>
                 </div>
                 <div className="label_Upper3"><p>Join the revolution of seamless web3 communication</p></div>
-                <button className="button_Upper4">Get Your Number</button>
+                <button type="button" className="button_Upper4" onClick={getNumber}>Get Your Number</button>
             </div>
             <div className="Lower">
                 {/* <div className="Lowerarc">

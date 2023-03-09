@@ -1,0 +1,32 @@
+.wallet_button{
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border: 0.2rem solid rgb(227, 227, 227);
+    background: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+}
+
+.wallet_button:hover{
+    background: rgb(244, 244, 244);
+    border: 0.2rem solid rgb(210, 210, 210);
+}
+
+.wallet_card{
+    background: white;
+    border-radius: 0.7rem;
+    padding: 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    
+    width: 20rem;
+    text-align: center;
+
+
+    box-shadow: 8rem 0rem 20rem 0rem #7fe1e6aa, -8rem 0rem 20rem rgba(163, 164, 247, 0.672);
+}

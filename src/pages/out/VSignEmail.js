@@ -20,7 +20,7 @@ function VSignupEmail(){
                 <div className="SignupEmailcard">
                     <div className="VSignupEmailUpperBlock">
                         <img src={s1}></img>
-                        <p className="VSUBEmail_title">Please verify your email</p>
+                        <p className="VSUBEmail_title margin_bottom_1rem">Please verify your email</p>
                         <p className="VSUBEmail_2">You are almost there! We sent an email to</p>
                         <p className="VSUBEmail_2 makeBold">yashkc6432@gmail.com</p>
                         <div className="VSUBEmail_3">
@@ -28,7 +28,7 @@ function VSignupEmail(){
                             <p className="VSUBEmail_2"> Still can’t find the email?</p>
                         </div>
                     </div>
-                    <button className="SignupEmail_option1">
+                    <button className="margin_top_1rem purple_gradient_button confirm_button_mint">
                         Resend Email
                     </button>
                     <div className="toEmailLogin">

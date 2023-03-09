@@ -6,41 +6,57 @@ import s1 from "../../img/signup1.png";
 import s2 from "../../img/signup2.png";
 import s3 from "../../img/signup3.png";
 import "../../css/Signup.css";
-
-// function getNumber(){
-//     console.log("get your number");
-// }
+import {Magic} from "magic-sdk";
+import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function Signup(){
-    return(
-        <>
-            <div className="Signupbg">
-                <Navbar/>
-                <div className="Signupcard">
-                    <div className="SignupUpperBlock">
-                        <img src={signupLogo}></img>
-                        <p className="SUB_title">Sign up</p>
-                        <p className="SUB_2">Please sign up to continue</p>
-                    </div>
-                    <div className="SignupLowerBlock">
-                        <button className="Signup_option1">
-                            <img src={s1}></img>Sign up with email
-                        </button>
-                        <button className="Signup_option1 Signup_option2 Signup_option21">
-                            <img src={s2}></img>Sign up with phone
-                        </button>
-                        <button className="Signup_option1 Signup_option2">
-                            <img src={s3}></img>Connect your wallet
-                        </button>
-                        <div className="toLogin">
-                            <p>Already have an account?</p>
-                            <a href="#">Log in</a>
-                        </div>
+
+    const navigate = useNavigate();
+
+    let magic = new Magic("pk_live_15D99720B6DDCD0F");
+
+    const render = async() =>{
+        const isLoggedIn = await magic.user.isLoggedIn();
+        return isLoggedIn;
+    }
+
+    if(!render()){
+        return(
+            <>
+                <div className="Signupbg">
+                    <Navbar/>
+                    <div className="Signupcard">
+                            <img src={signupLogo}></img>
+                            <p className="SUB_title">Sign up</p>
+                            <p className="SUB_2 margin_bottom_1rem">Please sign up to continue</p>
+                            <button className="margin_top_1rem purple_gradient_button Signup_option1">
+                                <i className="margin_right_05rem fa-solid fa-envelope"></i><p>Sign up with email</p>
+                            </button>
+                            <button className="Signup_option1 Signup_option2">
+                                <i className="margin_right_05rem fa-solid fa-mobile"></i><p>Sign up with phone</p>
+                            </button>
+                            <button className="Signup_option1 Signup_option2">
+                                <i className="margin_right_05rem fa-solid fa-wallet"></i><p>Connect your wallet</p>
+                            </button>
+                            <div className="toLogin">
+                                <p>Already have an account?</p>
+                                <a href="#">Log in</a>
+                            </div>
                     </div>
                 </div>
-            </div>
-        </>
-    )
+            </>
+        )
+    }
+    else{
+        return(
+            < Navigate to="/" />
+        );
+    }
+
+
+    
     
 }
 
