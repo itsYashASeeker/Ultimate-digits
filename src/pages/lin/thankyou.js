@@ -4,18 +4,27 @@ import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 function Thankyou(){
 
     const navigate = useNavigate();
 
     let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    var [loggedin,SetLogg] = useState("");
 
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }
-    if(render()){
+    useEffect(() => {
+        async function render() {
+            const isLoggedIn = await magic.user.isLoggedIn();
+            SetLogg(isLoggedIn);
+        }
+        render();
+     }, []);
+
+    if(loggedin==false){
+        function gotonum(){
+            navigate("/my-numbers");
+        }
         return(
             <div className="Signupbg">
                 <Navbar />
@@ -24,7 +33,7 @@ function Thankyou(){
                     <p className="thank_title">Thank you for your order</p>
                     <p>We’ve emailed your receipt to</p>
                     <p className="makeBold">yashkc6432@gmail.com</p>
-                    <button className="margin_top_1rem purple_gradient_button confirm_button_mint" type="button">Go to my numbers</button>
+                    <button type="button" className="margin_top_1rem purple_gradient_button confirm_button_mint" onClick={gotonum}>Go to my numbers</button>
                 </div>
             </div>
         )

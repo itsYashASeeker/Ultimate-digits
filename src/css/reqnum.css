@@ -62,6 +62,7 @@
 .inputnum input{
     width: 25rem;
     border: none;
+    font-size: 1rem;
 }
 
 .inputnum input:focus{
@@ -162,8 +163,8 @@
 .availHeader{
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-    /* position: relative;
-    left: -15rem; */
+    position: relative;
+    left: -15rem;
 }
 
 .avail_buynow{

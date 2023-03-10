@@ -7,18 +7,31 @@ import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 function Reqstep1(){
 
     const navigate = useNavigate();
 
     let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    var [loggedin,SetLogg] = useState("");
 
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }   
-    if(render()){
+    useEffect(() => {
+        async function render() {
+            const isLoggedIn = await magic.user.isLoggedIn();
+            SetLogg(isLoggedIn);
+        }
+        render();
+     }, []);
+
+    if(loggedin==false){
+        function remove_order(){
+            navigate("/request-number");
+        }
+    
+        function claim_number(){
+            navigate("/request-number/step2/success");
+        }
         return(
             <div className="reqbg">
                 <Navbar />
@@ -29,15 +42,15 @@ function Reqstep1(){
                     </div>
                     <div className="Available ">
                         <div className="cardBox expandBox ">
-                            <p className="r1c1 makeBold">+999 2121 1321 1321</p>
+                            <p className="r1c1 makeBold">+999 {localStorage.getItem("cnum")}</p>
                             <p className="r1c2 makeBold">US$90</p>
                             <p className="r2c1 AvailLabel">Available<i className="fa-solid fa-check"></i></p>
                             <p className="r2c2">Total Due</p>
                             <button type="button" className="like"><i className="fa-regular fa-heart" /></button> 
-                            <button className="inputnum_button avail_buynow remove_num">Remove</button>
+                            <button type="button" className="inputnum_button avail_buynow remove_num" onClick={remove_order}>Remove</button>
                         </div>
                     </div>
-                    <button type="button" className="claimMyNumber">Claim My Number</button>
+                    <button type="button" className="claimMyNumber" onClick={claim_number}>Claim My Number</button>
                     <div className="step_process">
                         <p className="steps current_process">1</p>
                         

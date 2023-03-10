@@ -10,19 +10,24 @@ import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 function Signup(){
 
     const navigate = useNavigate();
 
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
+    var [loggedin,SetLogg] = useState("");
 
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }
+    useEffect(() => {
+        async function render() {
+            const isLoggedIn = await magic.user.isLoggedIn();
+            SetLogg(isLoggedIn);
+        }
+        render();
+     }, []);
 
-    if(!render()){
+    if(loggedin==false){
         return(
             <>
                 <div className="Signupbg">
@@ -42,7 +47,7 @@ function Signup(){
                             </button>
                             <div className="toLogin">
                                 <p>Already have an account?</p>
-                                <a href="#">Log in</a>
+                                <Link to="/signup-with-email">Log in</Link>
                             </div>
                     </div>
                 </div>

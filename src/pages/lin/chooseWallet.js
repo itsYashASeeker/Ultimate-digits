@@ -6,18 +6,29 @@ import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 function ChooseWallet(){
     const navigate = useNavigate();
 
     let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    var [loggedin,SetLogg] = useState("");
 
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }
+    useEffect(() => {
+        async function render() {
+            const isLoggedIn = await magic.user.isLoggedIn();
+            SetLogg(isLoggedIn);
+        }
+        render();
+     }, []);
 
-    if(render()){
+    if(loggedin==false){
+        if(window.ethereum){
+            console.log("account exists");
+        }
+        else{
+            alert("install metamask extension!!");
+        }
         return(
             <div className="Signupbg">
                 <Navbar />

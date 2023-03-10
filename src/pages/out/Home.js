@@ -14,21 +14,18 @@ function Home(){
 
     let magic = new Magic("sk_live_6E45B0FD150D57DC");
 
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }
+    localStorage.setItem("cnum", "2121 1321 1321");  
 
-    const getNumber = () =>{
-        
-        if(render()){
+    const getNumber = async() =>{
+        var isLoggedIn = await magic.user.isLoggedIn();
+        console.log(isLoggedIn);
+        if(isLoggedIn===true){
             navigate("/request-number");
         }
-        else{
+        else if(isLoggedIn===false){
             navigate("/signup");
         }
     }
-
 
     return(
         <div className="Homebg">

@@ -9,59 +9,70 @@ import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import allData from "../../allData.js";
 
 function Reqnum(){
 
-    const navigate = useNavigate();
-
     let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    var [loggedin,SetLogg] = useState("");
 
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }
-
-    
-    try{
-        if(render()){
-            const [number, setNumber] = useState(" ");
-            function showStatus(num){
-                return(
-                    <Available number={num.number} />
-                )
-            }
-            const handleChange = (e) =>{
-                setNumber(e.target.value);
-            }
-            const checkNumber = () =>{
-                console.log("I got clicked");
-            }
-            return(
-                <div className="reqbg">
-                    <Navbar />
-                    <div className="reqcontent">
-                        <div id="askcontentid" className="askcontent">
-                            <p className="makeBold">Request a special number</p>
-                            <p>Set a custom 10 digit combination for your new number</p>
-                            <div className="inputnum">
-                                <p>+999</p>
-                                <input name="number" placeholder="Enter a 10 digit combination" onChange={handleChange}></input>
-                                <button type="button" className="inputnum_button" onClick={checkNumber}>Check Availability</button>
-                            </div>
-                        </div>
-                        <NAvailable num="6677 1525 3232" />
-                        <Available num="1192 1134 4455"/>
-                        <Available num="4467 1494 7854"/>
-                    </div>
-                    <Footer />
-                </div>
-            );
+    useEffect(() => {
+        async function render() {
+            const isLoggedIn = await magic.user.isLoggedIn();
+            SetLogg(isLoggedIn);
         }
+        render();
+     }, []);
+
+    if(loggedin==false){
+        const [number, setNumber] = useState();
+        const [naActive, setnaActive] = useState(false);
+        const [aActive, setaActive] = useState(false);
+        const [foundNum, setFoundNum] = useState(allData);
+
+        function showStatus(num){
+            return(
+                <Available num={num.mnum} />
+            )
+        }
+        const handleChange = (e) =>{
+            setNumber(e.target.value);
+        }
+        const checkNumber = () =>{
+            setnaActive(true);
+            for(var i=0;i<allData.length;i++){
+                if(allData[i].mnum==number){
+                    console.log("yes");
+                    setFoundNum([{"mnum": number}]);
+                    setnaActive(false);
+                    break; 
+                }
+            }
+            setaActive(true);
+        }
+        return(
+            <div className="reqbg">
+                <Navbar />
+                <div id="reqcontentid" className="reqcontent">
+                    <div id="askcontentid" className="askcontent">
+                        <p className="makeBold">Request a special number</p>
+                        <p>Set a custom 10 digit combination for your new number</p>
+                        <div className="inputnum">
+                            <p>+999</p>
+                            <input name="number" placeholder="Enter a 10 digit combination" onChange={handleChange}></input>
+                            <button type="button" className="inputnum_button" onClick={checkNumber}>Check Availability</button>
+                        </div>
+                    </div>
+                    {naActive ? <NAvailable num={number} /> : null}
+                    {aActive ? <p className="availHeader makeBold">Available numbers</p> : null}
+                    {aActive ? (foundNum.map(showStatus)) : null}
+                </div>
+                <Footer />
+            </div>
+        );
     }
-    catch(err){
-        console.log("hello world");
+    else{
         return <Navigate to="/signup" />
     }
     

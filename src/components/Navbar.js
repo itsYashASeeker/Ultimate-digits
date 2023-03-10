@@ -6,19 +6,10 @@ import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-function getNumber(){
-    console.log("get your number");
-}
-
 function Navbar(){
 
     let magic = new Magic("sk_live_6E45B0FD150D57DC");
-
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }
-
+    var isLoggedIn;
     const navigate = useNavigate();
 
     const handleLogout = async() => {
@@ -26,16 +17,21 @@ function Navbar(){
         navigate("/signup");
     };
 
-    const navtosign = () =>{
-        navigate("/");
+    const render = async() =>{
+        isLoggedIn = await magic.user.isLoggedIn();
     }
-    if(render()){
-        console.log("world");
+    render();
+
+    function reqnum(){
+        navigate("/request-number");
+    }
+
+    if(isLoggedIn){
         return(
             <div className="navbar2">
-                <a href="#">
+                <Link to="/">
                     <img src={logo}></img>
-                </a>
+                </Link>
                 <button id="logout" type="button" className="logout" onClick={handleLogout} >Log Out</button>
             </div>
         )
@@ -43,12 +39,10 @@ function Navbar(){
     else{
         return(
             <div className="navbar2">
-                <a href="#">
-                    <img src={logo}></img>
-                </a>
                 <Link to="/">
-                    <button id="getNumber" type="button" className="getYourNumber">Get Your Number</button>
+                    <img src={logo}></img>
                 </Link>
+                <button id="getNumber" type="button" className="getYourNumber" onClick={reqnum}>Get Your Number</button>
             </div>
         )
     }
