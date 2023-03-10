@@ -92,3 +92,33 @@
 
 }
 
+.popupbg{
+    position: absolute;
+    top: -100vh;
+    background: rgba(255, 255, 255, 0.306);
+    backdrop-filter: blur(0.3rem);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s all ease-out;
+}
+
+.popup_card{
+    margin-top: 1rem;
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.65);
+    width: 18rem;
+    /* height: 22.5rem; */
+    text-align: center;
+}
+
+.learnmoreskale{
+    margin: 1rem 0;
+    color: #2019E1;
+}
+
+.show_popup{
+    top: 0;
+}

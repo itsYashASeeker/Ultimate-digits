@@ -13,15 +13,6 @@ function Navbar(){
     const navigate = useNavigate();
 
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
-    var [loggedin,SetLogg] = useState("");
-
-    useEffect(() => {
-        async function render() {
-            const isLoggedIn = await magic.user.isLoggedIn();
-            SetLogg(isLoggedIn);
-        }
-        render();
-     }, []);
 
     const handleLogout = async() => {
         await magic.user.logout();
@@ -37,7 +28,7 @@ function Navbar(){
     function reqnum(){
         navigate("/request-number");
     }
-    if(loggedin==true){
+    if(localStorage.getItem("log")=="true"){
         return(
             <div className="navbar2">
                 <Link to="/">

@@ -29,11 +29,11 @@ function Thankyou(){
             <div className="Signupbg">
                 <Navbar />
                 <div className="Signupcard thankCard">
-                    <i className="logo_thanks fa-solid fa-cart-shopping"></i>
+                    <i className="margin_top_1rem logo_thanks fa-solid fa-cart-shopping"></i>
                     <p className="thank_title">Thank you for your order</p>
                     <p>We’ve emailed your receipt to</p>
-                    <p className="makeBold">yashkc6432@gmail.com</p>
-                    <button type="button" className="margin_top_1rem purple_gradient_button confirm_button_mint" onClick={gotonum}>Go to my numbers</button>
+                    <p className="makeBold">{localStorage.getItem("userEmail")}</p>
+                    <button type="button" className="margin_top_1rem margin_bottom_1rem purple_gradient_button confirm_button_mint" onClick={gotonum}>Go to my numbers</button>
                 </div>
             </div>
         )

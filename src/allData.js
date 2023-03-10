@@ -8,6 +8,15 @@ const allData = [
     {
         mnum: "6543 2344 9536",
     },
+    {
+        mnum: "4672 1188 3367",
+    },
+    {
+        mnum: "7789 3421 8865",
+    },
+    {
+        mnum: "1101 2202 3303",
+    },
 ];
 
 export default allData;

@@ -22,15 +22,25 @@ function Usernum(){
     //     }
     //     render();
     //  }, []);
+    
+    // popupbgid.onclick = function(){
+    //     const popupbgid = document.getElementById("popupbgid");
+    //     popupbgid.classList.remove("show_popup");
+    // }
 
     if(localStorage.getItem("log")==="true"){
         function getNum(){
             navigate("/request-number");
         }
         function gotoWallet(){
+            var popupbgid = document.getElementById("popupbgid");
+            popupbgid.classList.add("show_popup");
+        }
+        function gotominting(){
             navigate("/request-number/step3/choose-wallet");
         }
         return(
+            <>
             <div className="reqbg">
                 <Navbar />
                 <div className="reqcontent">
@@ -48,7 +58,20 @@ function Usernum(){
                         <button type="button" className="buttons mint_button" onClick={gotoWallet}>Mint now</button>
                     </div>
                 </div>
+                <div id="popupbgid" className="popupbg">
+                    <div className="Signupcard popup_card">
+                        <img src={user}></img>
+                        <p className="thank_title">Mint domain on Skale</p>
+                        <p className=" margin_bottom_1rem">Minting and managing numbers on Skale is free.</p>
+                        <p> Not all apps currently support Ultimate digits number resolution</p>
+                        <p className="margin_top_1rem">Number management and configuration will be available soon.</p>
+                        <button className="margin_top_1rem purple_gradient_button" onClick={gotominting} >Continue</button>
+                        <Link to="/my-numbers"><p className="learnmoreskale">Learn more about Skale</p></Link>
+                    </div>
+                </div>
             </div>
+            
+            </>
         );
     }
     else{

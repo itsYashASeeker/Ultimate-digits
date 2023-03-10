@@ -13,7 +13,7 @@
 }
 
 .thankCard{
-    height: 14rem;
+    /* height: 14rem; */
     display: flex;
     justify-content: center;
     align-items: center;

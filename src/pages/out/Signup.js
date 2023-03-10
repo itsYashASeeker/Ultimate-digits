@@ -21,7 +21,7 @@ function Signup(){
     function gotosignemail(){
         navigate("/signup-with-email");
     }
-    if(localStorage.getItem("log")!=true){
+    if(localStorage.getItem("log")!="true"){
         return(
             <>
                 <div className="Signupbg">

@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 function ChooseWallet(){
     const navigate = useNavigate();
 
+
     // let magic = new Magic("sk_live_6E45B0FD150D57DC");
     // var [loggedin,SetLogg] = useState("");
 
@@ -23,17 +24,26 @@ function ChooseWallet(){
     //  }, []);
 
     if(localStorage.getItem("log")==="true"){
-        if(window.ethereum){
-            console.log("account exists");
+
+        async function requestWallet(){
+            if(window.ethereum){
+                console.log("Extension detected");
+                try{
+                    const accounts = await window.ethereum.request({
+                        method: "eth_requestAccounts",
+                    });
+                    localStorage.setItem("walletAddress", accounts[0]);
+                    navigate("/request-number/step3/confirm-mint");
+                }
+                catch(err){
+                    console.log("Error in connecting!");
+                }
+            }
+            else{
+                alert("Meta mask not detected");
+            }
         }
-        else{
-            alert("install metamask extension!!");
-        }
-        window.ethereum.request({method:'eth_requestAccounts'})
-        .then(res=>{
-                // Return the address of the wallet
-                console.log(res) 
-        })
+        
         return(
             <div className="Signupbg">
                 <Navbar />
@@ -41,7 +51,8 @@ function ChooseWallet(){
                     <i className="logo_thanks fa-solid fa-wallet"></i>
                     <p className="thank_title">Choose a wallet</p>
                     <p>Once minted your wallet address will be set as the phone number owner.</p>
-                    <button className="wallet_button"><img src={metamask}></img><p className="makeBold">Metamask</p></button>
+                    <p>Wallet address: <p className="makeBold">{localStorage.getItem("walletAddress")}</p></p>
+                    <button className="wallet_button" onClick={requestWallet}><img src={metamask}></img><p className="makeBold">Metamask</p></button>
                 </div>
             </div>
         )

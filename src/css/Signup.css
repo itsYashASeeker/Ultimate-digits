@@ -24,8 +24,9 @@ body{
 
 .Signupcard{
     margin-top: 3rem;
-    width: 21rem;
-    height: 22rem;
+    /* width: 21rem; */
+    /* height: 22rem; */
+    /* padding: 1rem; */
     padding: 1rem;
     background: white;
     border-radius: 0.7rem;

@@ -33,9 +33,9 @@ function MintConfirm(){
                     <i className="logo_thanks fa-solid fa-rotate"></i>
                     <p className="thank_title">Mint your Number</p>
                     <p>You are minting the following number</p>
-                    <p className="makeBold margin_bottom_1rem">+999 8888 777 888</p>
+                    <p className="makeBold margin_bottom_1rem">+999 {localStorage.getItem("cnum")}</p>
                     <p>Number owner will be assigned to the following wallet address:</p>
-                    <p className="makeBold margin_top_1rem">0x29F6E49a615FcB9A113769879a9 efDD9797a2f19</p>
+                    <p className="makeBold margin_top_1rem">{localStorage.getItem("walletAddress")}</p>
                     <button className="margin_top_1rem purple_gradient_button confirm_button_mint" onClick={mint}>Confirm</button>
                 </div>
             </div>

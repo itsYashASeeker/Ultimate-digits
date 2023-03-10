@@ -14,15 +14,17 @@ function Home(){
     const navigate = useNavigate();
 
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
-    // var [loggedin,SetLogg] = useState("");
 
-    // useEffect(() => {
-    //     async function render() {
-    //         const isLoggedIn = await magic.user.isLoggedIn();
-    //         SetLogg(isLoggedIn);
-    //     }
-    //     render();
-    //  }, []);
+    async function render() {
+        const isLoggedIn = await magic.user.isLoggedIn();
+        if(isLoggedIn==true){
+            localStorage.setItem("log", "true");
+        }
+        else{
+            localStorage.setItem("log","false");
+        }
+    }
+    render();
 
     localStorage.setItem("cnum", "2121 1321 1321");  
 

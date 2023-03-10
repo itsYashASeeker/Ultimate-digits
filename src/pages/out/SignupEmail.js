@@ -31,6 +31,8 @@ function SignupEmail(){
         if(email){
             await magic.auth.loginWithEmailOTP({email});
             localStorage.setItem("log", "true");
+            localStorage.setItem("userEmail", email);
+            window.location.reload(false);
         }
     }
 
@@ -51,10 +53,10 @@ function SignupEmail(){
                                 <label>Email</label>
                                 <input name="email" placeholder="Enter your email"></input>
                             </div>
-                            <div className="SignupEmailUsername1 godown">
+                            {/* <div className="SignupEmailUsername1 godown">
                                 <label>Set Password</label>
                                 <input name="password" type={"password"} placeholder="******"></input>
-                            </div>
+                            </div> */}
                             <button type="submit" className="margin_top_1rem purple_gradient_button confirm_button_mint">
                                 Sign up
                             </button>
