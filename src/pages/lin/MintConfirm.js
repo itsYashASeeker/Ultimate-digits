@@ -11,18 +11,18 @@ function MintConfirm(){
 
     const navigate = useNavigate();
 
-    let magic = new Magic("sk_live_6E45B0FD150D57DC");
-    var [loggedin,SetLogg] = useState("");
+    // let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    // var [loggedin,SetLogg] = useState("");
 
-    useEffect(() => {
-        async function render() {
-            const isLoggedIn = await magic.user.isLoggedIn();
-            SetLogg(isLoggedIn);
-        }
-        render();
-     }, []);
+    // useEffect(() => {
+    //     async function render() {
+    //         const isLoggedIn = await magic.user.isLoggedIn();
+    //         SetLogg(isLoggedIn);
+    //     }
+    //     render();
+    //  }, []);
 
-    if(loggedin==false){
+    if(localStorage.getItem("log")==="true"){
         function mint(){
             navigate("/request-number/step3/mint-in-progress");
         }

@@ -10,13 +10,13 @@ function MintInProgress(){
 
     const navigate = useNavigate();
 
-    let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    // let magic = new Magic("sk_live_6E45B0FD150D57DC");
 
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }   
-    if(render()){
+    // const render = async() =>{
+    //     const isLoggedIn = await magic.user.isLoggedIn();
+    //     return isLoggedIn;
+    // }   
+    if(localStorage.getItem("log")==="true"){
         return(
             <div className="Signupbg">
                 <Navbar />

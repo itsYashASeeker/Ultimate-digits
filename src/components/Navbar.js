@@ -5,28 +5,39 @@ import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
+    
 function Navbar(){
 
-    let magic = new Magic("sk_live_6E45B0FD150D57DC");
-    var isLoggedIn;
     const navigate = useNavigate();
+
+    let magic = new Magic("pk_live_15D99720B6DDCD0F");
+    var [loggedin,SetLogg] = useState("");
+
+    useEffect(() => {
+        async function render() {
+            const isLoggedIn = await magic.user.isLoggedIn();
+            SetLogg(isLoggedIn);
+        }
+        render();
+     }, []);
 
     const handleLogout = async() => {
         await magic.user.logout();
+        localStorage.setItem("log", false);
         navigate("/signup");
     };
 
-    const render = async() =>{
-        isLoggedIn = await magic.user.isLoggedIn();
-    }
-    render();
+    // const render = async() =>{
+    //     loggedin = await magic.user.isLoggedIn();
+    // }
+    // render();
 
     function reqnum(){
         navigate("/request-number");
     }
-
-    if(isLoggedIn){
+    if(loggedin==true){
         return(
             <div className="navbar2">
                 <Link to="/">

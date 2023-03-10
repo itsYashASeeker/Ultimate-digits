@@ -1,4 +1,3 @@
-
 import logo from "../../img/logo3.png";
 import Navbar from "../../components/Navbar.js";
 import signupLogo from "../../img/Vector.png";
@@ -7,12 +6,22 @@ import s2 from "../../img/signup1.png";
 import "../../css/SignupEmail.css";
 import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
-function getNumber(){
-    console.log("get your number");
-}
-
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import allData from "../../allData.js";
 
 function SignupEmail(){
+
+    // var [loggedin,SetLogg] = useState("");
+
+    // useEffect(() => {
+    //     async function render() {
+    //         const isLoggedIn = await magic.user.isLoggedIn();
+    //         SetLogg(isLoggedIn);
+    //     }
+    //     render();
+    //  }, []);
 
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
 
@@ -21,16 +30,11 @@ function SignupEmail(){
         const email = new FormData(event.target).get("email");
         if(email){
             await magic.auth.loginWithEmailOTP({email});
-            render();
+            localStorage.setItem("log", "true");
         }
     }
 
-    const render = async() =>{
-        const isLoggedIn = await magic.user.isLoggedIn();
-        return isLoggedIn;
-    }
-
-    if(!render()){
+    if(localStorage.getItem("log")!="true"){
         return(
             <div className="SignupEmailbg">
                 <Navbar/>
@@ -64,7 +68,7 @@ function SignupEmail(){
             </div>
         );
     }
-    else if(render()){
+    else{
         return(
             < Navigate to="/" />
         );

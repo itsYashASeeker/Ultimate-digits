@@ -14,23 +14,23 @@ import allData from "../../allData.js";
 
 function Reqnum(){
 
-    let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    let magic = new Magic("pk_live_15D99720B6DDCD0F");
     var [loggedin,SetLogg] = useState("");
+    var [number, setNumber] = useState();
+    var [naActive, setnaActive] = useState(false);
+    var [aActive, setaActive] = useState(false);
+    var [foundNum, setFoundNum] = useState(allData);
 
-    useEffect(() => {
-        async function render() {
-            const isLoggedIn = await magic.user.isLoggedIn();
-            SetLogg(isLoggedIn);
-        }
-        render();
-     }, []);
+    // useEffect(() => {
+    //     async function render() {
+    //         const isLoggedIn = await magic.user.isLoggedIn();
+    //         SetLogg(isLoggedIn);
+    //     }
+    //     render();
+    //  }, []);
 
-    if(loggedin==false){
-        const [number, setNumber] = useState();
-        const [naActive, setnaActive] = useState(false);
-        const [aActive, setaActive] = useState(false);
-        const [foundNum, setFoundNum] = useState(allData);
-
+    if(localStorage.getItem("log")==="true"){
+        
         function showStatus(num){
             return(
                 <Available num={num.mnum} />
@@ -73,11 +73,8 @@ function Reqnum(){
         );
     }
     else{
-        return <Navigate to="/signup" />
-    }
-    
-
-    
+        return <Navigate to="/" />
+    }  
 }
 
 export default Reqnum;

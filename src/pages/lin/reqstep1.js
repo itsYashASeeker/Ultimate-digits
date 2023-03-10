@@ -13,7 +13,7 @@ function Reqstep1(){
 
     const navigate = useNavigate();
 
-    let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    let magic = new Magic("pk_live_15D99720B6DDCD0F");
     var [loggedin,SetLogg] = useState("");
 
     useEffect(() => {
@@ -24,7 +24,7 @@ function Reqstep1(){
         render();
      }, []);
 
-    if(loggedin==false){
+    if(localStorage.getItem("log")==="true"){
         function remove_order(){
             navigate("/request-number");
         }

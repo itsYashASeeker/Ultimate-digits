@@ -11,24 +11,29 @@ import { useState, useEffect } from "react";
 function ChooseWallet(){
     const navigate = useNavigate();
 
-    let magic = new Magic("sk_live_6E45B0FD150D57DC");
-    var [loggedin,SetLogg] = useState("");
+    // let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    // var [loggedin,SetLogg] = useState("");
 
-    useEffect(() => {
-        async function render() {
-            const isLoggedIn = await magic.user.isLoggedIn();
-            SetLogg(isLoggedIn);
-        }
-        render();
-     }, []);
+    // useEffect(() => {
+    //     async function render() {
+    //         const isLoggedIn = await magic.user.isLoggedIn();
+    //         SetLogg(isLoggedIn);
+    //     }
+    //     render();
+    //  }, []);
 
-    if(loggedin==false){
+    if(localStorage.getItem("log")==="true"){
         if(window.ethereum){
             console.log("account exists");
         }
         else{
             alert("install metamask extension!!");
         }
+        window.ethereum.request({method:'eth_requestAccounts'})
+        .then(res=>{
+                // Return the address of the wallet
+                console.log(res) 
+        })
         return(
             <div className="Signupbg">
                 <Navbar />

@@ -7,22 +7,33 @@ import lowerArc from "../../img/lower_arc.png";
 import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Home(){
 
     const navigate = useNavigate();
 
-    let magic = new Magic("sk_live_6E45B0FD150D57DC");
+    let magic = new Magic("pk_live_15D99720B6DDCD0F");
+    // var [loggedin,SetLogg] = useState("");
+
+    // useEffect(() => {
+    //     async function render() {
+    //         const isLoggedIn = await magic.user.isLoggedIn();
+    //         SetLogg(isLoggedIn);
+    //     }
+    //     render();
+    //  }, []);
 
     localStorage.setItem("cnum", "2121 1321 1321");  
 
-    const getNumber = async() =>{
-        var isLoggedIn = await magic.user.isLoggedIn();
-        console.log(isLoggedIn);
-        if(isLoggedIn===true){
+    const getNumber = () =>{
+        console.log(localStorage.getItem("log"));
+        if(localStorage.getItem("log")==="true"){
+            console.log("Logged in");
             navigate("/request-number");
         }
-        else if(isLoggedIn===false){
+        else{
+            console.log("logged out");
             navigate("/signup");
         }
     }
@@ -48,9 +59,6 @@ function Home(){
                 <button type="button" className="button_Upper4" onClick={getNumber}>Get Your Number</button>
             </div>
             <div className="Lower">
-                {/* <div className="Lowerarc">
-                    <span></span>
-                </div> */}
                 <img src={lowerArc} className="lower_arc"></img>
                 <div className="iphone_bottom">
                     <img src={iphone}></img>

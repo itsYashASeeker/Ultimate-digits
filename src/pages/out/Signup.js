@@ -17,17 +17,11 @@ function Signup(){
     const navigate = useNavigate();
 
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
-    var [loggedin,SetLogg] = useState("");
 
-    useEffect(() => {
-        async function render() {
-            const isLoggedIn = await magic.user.isLoggedIn();
-            SetLogg(isLoggedIn);
-        }
-        render();
-     }, []);
-
-    if(loggedin==false){
+    function gotosignemail(){
+        navigate("/signup-with-email");
+    }
+    if(localStorage.getItem("log")!=true){
         return(
             <>
                 <div className="Signupbg">
@@ -36,7 +30,7 @@ function Signup(){
                             <img src={signupLogo}></img>
                             <p className="SUB_title">Sign up</p>
                             <p className="SUB_2 margin_bottom_1rem">Please sign up to continue</p>
-                            <button className="margin_top_1rem purple_gradient_button Signup_option1">
+                            <button className="margin_top_1rem purple_gradient_button Signup_option1" onClick={gotosignemail}>
                                 <i className="margin_right_05rem fa-solid fa-envelope"></i><p>Sign up with email</p>
                             </button>
                             <button className="Signup_option1 Signup_option2">
@@ -58,11 +52,7 @@ function Signup(){
         return(
             < Navigate to="/" />
         );
-    }
-
-
-    
-    
+    } 
 }
 
 export default Signup;
