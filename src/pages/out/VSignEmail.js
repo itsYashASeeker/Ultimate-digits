@@ -1,4 +1,5 @@
 
+import React from "react";
 import logo from "../../img/logo3.png";
 import Navbar from "../../components/Navbar.js";
 import signupLogo from "../../img/Vector.png";
@@ -12,7 +13,6 @@ function getNumber(){
 }
 
 function VSignupEmail(){
-
     return(
         <>
             <div className="SignupEmailbg">

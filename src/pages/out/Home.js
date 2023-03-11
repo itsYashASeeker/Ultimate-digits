@@ -1,3 +1,5 @@
+// require("dotenv").config();
+
 import React from "react";
 import "../../css/Home.css";
 import iphone from "../../img/iphone.png";
@@ -8,11 +10,11 @@ import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+require("dotenv").config();
 
 function Home(){
 
     const navigate = useNavigate();
-
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
 
     async function render() {

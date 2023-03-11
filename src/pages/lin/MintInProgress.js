@@ -1,3 +1,5 @@
+
+import React from "react";
 import Navbar from "../../components/Navbar.js";
 import "../../css/MintConfirm.css";
 import {Magic} from "magic-sdk";
@@ -10,7 +12,6 @@ function MintInProgress(){
 
     const navigate = useNavigate();
 
-    // let magic = new Magic("sk_live_6E45B0FD150D57DC");
 
     // const render = async() =>{
     //     const isLoggedIn = await magic.user.isLoggedIn();

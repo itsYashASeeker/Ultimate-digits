@@ -1,3 +1,5 @@
+
+import React from "react";
 import Navbar from "../../components/Navbar.js";
 import "../../css/thankyou.css";
 import metamask from "../../img/Metamask.png";
@@ -12,7 +14,6 @@ function ChooseWallet(){
     const navigate = useNavigate();
 
 
-    // let magic = new Magic("sk_live_6E45B0FD150D57DC");
     // var [loggedin,SetLogg] = useState("");
 
     // useEffect(() => {

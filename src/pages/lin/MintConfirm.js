@@ -1,3 +1,5 @@
+
+import React from "react";
 import Navbar from "../../components/Navbar.js";
 import "../../css/Signup.css";
 import "../../css/MintConfirm.css";
@@ -11,7 +13,6 @@ function MintConfirm(){
 
     const navigate = useNavigate();
 
-    // let magic = new Magic("sk_live_6E45B0FD150D57DC");
     // var [loggedin,SetLogg] = useState("");
 
     // useEffect(() => {

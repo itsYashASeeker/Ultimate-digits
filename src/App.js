@@ -1,4 +1,5 @@
 
+import React from "react";
 import Home from "./pages/out/Home.js";
 import Signup from "./pages/out/Signup.js";
 import SignupEmail from "./pages/out/SignupEmail.js";
@@ -10,6 +11,7 @@ import Usernum from "./pages/lin/usernum.js";
 import ChooseWallet from "./pages/lin/chooseWallet.js";
 import MintConfirm from "./pages/lin/MintConfirm.js";
 import MintInProgress from "./pages/lin/MintInProgress.js";
+import MyContract from "./pages/smart.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
         <Route path="/request-number/step3/choose-wallet" element={<ChooseWallet />} />
         <Route path="/request-number/step3/confirm-mint" element={<MintConfirm />} />
         <Route path="/request-number/step3/mint-in-progress" element={<MintInProgress />} />
+        <Route path="/contract" element={<MyContract/>} />
       </Routes>
     </BrowserRouter>
   );

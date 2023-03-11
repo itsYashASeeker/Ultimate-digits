@@ -14,7 +14,6 @@ import allData from "../../allData.js";
 
 function Reqnum(){
 
-    let magic = new Magic("pk_live_15D99720B6DDCD0F");
     var [loggedin,SetLogg] = useState("");
     var [number, setNumber] = useState();
     var [naActive, setnaActive] = useState(false);

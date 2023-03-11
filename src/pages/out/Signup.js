@@ -1,4 +1,5 @@
 
+import React from "react";
 import logo from "../../img/logo3.png";
 import Navbar from "../../components/Navbar.js";
 import signupLogo from "../../img/Vector.png";
@@ -15,8 +16,6 @@ import { useState, useEffect } from "react";
 function Signup(){
 
     const navigate = useNavigate();
-
-    let magic = new Magic("pk_live_15D99720B6DDCD0F");
 
     function gotosignemail(){
         navigate("/signup-with-email");

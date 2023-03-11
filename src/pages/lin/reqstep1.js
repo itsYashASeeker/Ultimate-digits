@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -8,21 +9,20 @@ import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-
+require("dotenv").config();
 function Reqstep1(){
 
     const navigate = useNavigate();
 
-    let magic = new Magic("pk_live_15D99720B6DDCD0F");
-    var [loggedin,SetLogg] = useState("");
+    // var [loggedin,SetLogg] = useState("");
 
-    useEffect(() => {
-        async function render() {
-            const isLoggedIn = await magic.user.isLoggedIn();
-            SetLogg(isLoggedIn);
-        }
-        render();
-     }, []);
+    // useEffect(() => {
+    //     async function render() {
+    //         const isLoggedIn = await magic.user.isLoggedIn();
+    //         SetLogg(isLoggedIn);
+    //     }
+    //     render();
+    //  }, []);
 
     if(localStorage.getItem("log")==="true"){
         function remove_order(){

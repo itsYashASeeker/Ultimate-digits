@@ -12,7 +12,6 @@ function Usernum(){
 
     const navigate = useNavigate();
 
-    let magic = new Magic("sk_live_6E45B0FD150D57DC");
     // var [loggedin,SetLogg] = useState("");
 
     // useEffect(() => {
@@ -22,11 +21,6 @@ function Usernum(){
     //     }
     //     render();
     //  }, []);
-    
-    // popupbgid.onclick = function(){
-    //     const popupbgid = document.getElementById("popupbgid");
-    //     popupbgid.classList.remove("show_popup");
-    // }
 
     if(localStorage.getItem("log")==="true"){
         function getNum(){

@@ -1,3 +1,5 @@
+
+import React from "react";
 import logo from "../../img/logo3.png";
 import Navbar from "../../components/Navbar.js";
 import signupLogo from "../../img/Vector.png";
@@ -10,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import allData from "../../allData.js";
+require("dotenv").config();
 
 function SignupEmail(){
 
