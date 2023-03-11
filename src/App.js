@@ -12,6 +12,7 @@ import ChooseWallet from "./pages/lin/chooseWallet.js";
 import MintConfirm from "./pages/lin/MintConfirm.js";
 import MintInProgress from "./pages/lin/MintInProgress.js";
 import MyContract from "./pages/smart.js";
+import SignupPhone from "./pages/out/SignupPhone.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signup-with-email" element={<SignupEmail />} />
+        <Route path="/signup-with-phone" element={<SignupPhone />} />
         <Route path="/signup-with-email/verification" element={<VSignupEmail />} />
         <Route path="/request-number" element={<Reqnum/>} />
         <Route path="/request-number/step1" element={<Reqstep1/>} />

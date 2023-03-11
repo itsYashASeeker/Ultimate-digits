@@ -158,6 +158,12 @@ body{
     box-shadow: 0 0 0.3rem black;
 }
 
+.phoneLogoSign{
+    /* background: #2019E1; */
+    color: #2019e1df;
+    font-size: 2rem;
+}
+
 @media (max-width: 450px) {
     .SignupEmailcard{
         width: 80vw;

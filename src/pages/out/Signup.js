@@ -17,10 +17,48 @@ function Signup(){
 
     const navigate = useNavigate();
 
-    function gotosignemail(){
-        navigate("/signup-with-email");
-    }
+    
     if(localStorage.getItem("log")!="true"){
+
+        async function connectWallet(){
+            let magic = new Magic("pk_live_15D99720B6DDCD0F");
+            try{
+                if(window.ethereum){
+                    console.log("Extension detected");
+
+                    // const accounts1 = await window.ethereum.request({
+                    //     method: "eth_requestAccounts",
+                    // });
+                    // console.log(`Wallet: ${accounts1}`);
+                    // const accounts2 = await magic.auth.loginWithCredential();
+                    const accounts = await magic.wallet.connectWithUI();
+                    // console.log("User: "+accounts2);
+                    window.alert("Logged in user: "+accounts[0]);
+                    // localStorage.setItem("walletAddress", accounts1[0]);
+                    // localStorage.setItem("log", "true");
+                    // localStorage.setItem("userEmail", "hello@example.com");
+                    // window.alert("Successful Login");
+                    // window.location.reload(false);
+                }
+                else{
+                    alert("Meta mask not detected");
+                }
+                
+            }
+            catch(err){
+                window.alert("Some error occured, please try again...");
+                window.alert(err);
+            }
+        }
+
+        function gotosignemail(){
+            navigate("/signup-with-email");
+        }
+
+        function gotosignPhone(){
+            navigate("/signup-with-phone");
+        }
+
         return(
             <>
                 <div className="Signupbg">
@@ -32,10 +70,10 @@ function Signup(){
                             <button className="margin_top_1rem purple_gradient_button Signup_option1" onClick={gotosignemail}>
                                 <i className="margin_right_05rem fa-solid fa-envelope"></i><p>Sign up with email</p>
                             </button>
-                            <button className="Signup_option1 Signup_option2">
+                            <button className="Signup_option1 Signup_option2" onClick={gotosignPhone}>
                                 <i className="margin_right_05rem fa-solid fa-mobile"></i><p>Sign up with phone</p>
                             </button>
-                            <button className="Signup_option1 Signup_option2">
+                            <button className="Signup_option1 Signup_option2" onClick={connectWallet}>
                                 <i className="margin_right_05rem fa-solid fa-wallet"></i><p>Connect your wallet</p>
                             </button>
                             <div className="toLogin">

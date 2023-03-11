@@ -15,9 +15,10 @@ require("dotenv").config();
 function Home(){
 
     const navigate = useNavigate();
-    let magic = new Magic("pk_live_15D99720B6DDCD0F");
+    
 
     async function render() {
+        let magic = new Magic("pk_live_15D99720B6DDCD0F");
         const isLoggedIn = await magic.user.isLoggedIn();
         if(isLoggedIn==true){
             localStorage.setItem("log", "true");
