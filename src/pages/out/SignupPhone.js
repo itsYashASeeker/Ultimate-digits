@@ -54,7 +54,7 @@ function SignupPhone(){
                 <div className="SignupEmailcard">
                     <div className="SignupEmailUpperBlock">
                         <i className="fa-solid fa-mobile phoneLogoSign"></i>
-                        <p className="SUBEmail_title">Sign up {num}</p>
+                        <p className="SUBEmail_title">Sign up</p>
                         <p className="SUBEmail_2">Please sign up to continue</p>
                     </div>
                     <form onSubmit={handleLogin}>
