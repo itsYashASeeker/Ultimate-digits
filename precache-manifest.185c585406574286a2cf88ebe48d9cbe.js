@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "6f82f4db18a3bdd76433",
+    "revision": "37eb144433dfbf7e8f25",
     "url": "/Ultimate-digits/static/css/main.7c2200f1.chunk.css"
   },
   {
-    "revision": "6f82f4db18a3bdd76433",
-    "url": "/Ultimate-digits/static/js/main.4c374808.chunk.js"
+    "revision": "37eb144433dfbf7e8f25",
+    "url": "/Ultimate-digits/static/js/main.23939ad6.chunk.js"
   },
   {
     "revision": "7bcec787f17800c866ca",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/Ultimate-digits/static/media/lower_arc.c4359510.png"
   },
   {
-    "revision": "c36d7041f166a32a20029f02ccbaac9f",
+    "revision": "20aade64ecf8f5f57b1c36e7d0112220",
     "url": "/Ultimate-digits/index.html"
   }
 ];
