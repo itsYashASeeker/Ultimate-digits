@@ -21,7 +21,7 @@ function Signup(){
     if(localStorage.getItem("log")!="true"){
 
         async function connectWallet(){
-            let magic = new Magic("pk_live_15D99720B6DDCD0F");
+            let magic = new Magic("pk_live_509EF48473539130");
             try{
                 if(window.ethereum){
                     console.log("Extension detected");
@@ -43,10 +43,8 @@ function Signup(){
                 else{
                     alert("Meta mask not detected");
                 }
-                
             }
             catch(err){
-                window.alert("Some error occured, please try again...");
                 window.alert(err);
             }
         }

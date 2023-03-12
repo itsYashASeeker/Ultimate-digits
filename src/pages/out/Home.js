@@ -29,17 +29,17 @@ function Home(){
     }
     render();
 
-    localStorage.setItem("cnum", "2121 1321 1321");  
+    localStorage.setItem("cnum", "21 1321 1321");  
 
     const getNumber = () =>{
         console.log(localStorage.getItem("log"));
         if(localStorage.getItem("log")==="true"){
             console.log("Logged in");
-            navigate("/request-number");
+            navigate("/request-number/");
         }
         else{
             console.log("logged out");
-            navigate("/signup");
+            navigate("/signup/");
         }
     }
 

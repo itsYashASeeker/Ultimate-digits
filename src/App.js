@@ -13,14 +13,15 @@ import MintConfirm from "./pages/lin/MintConfirm.js";
 import MintInProgress from "./pages/lin/MintInProgress.js";
 import MyContract from "./pages/smart.js";
 import SignupPhone from "./pages/out/SignupPhone.js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Route, Link, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route exact path="/signup" element={<Signup />} />
         <Route path="/signup-with-email" element={<SignupEmail />} />
         <Route path="/signup-with-phone" element={<SignupPhone />} />
         <Route path="/signup-with-email/verification" element={<VSignupEmail />} />
@@ -33,7 +34,7 @@ function App() {
         <Route path="/request-number/step3/mint-in-progress" element={<MintInProgress />} />
         <Route path="/contract" element={<MyContract/>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

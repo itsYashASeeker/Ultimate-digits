@@ -25,7 +25,7 @@ function SignupEmail(){
     //     }
     //     render();
     //  }, []);
-
+    const navigate = useNavigate();
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
 
     const handleLogin = async(event) =>{
@@ -36,6 +36,7 @@ function SignupEmail(){
                 await magic.auth.loginWithEmailOTP({email});
                 localStorage.setItem("log", "true");
                 localStorage.setItem("userEmail", email);
+                navigate("/");
                 window.location.reload(false);
             }
             catch(err){
