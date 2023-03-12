@@ -61,6 +61,16 @@
     display: none;
 }
 
+.block_screen{
+    position: absolute;
+    height: 100vh;
+    max-height: 100vh;
+    width: 100vw;
+    background: rgba(174, 174, 174, 0.212);
+    /* backdrop-filter: blur(0.2rem); */
+    z-index: 10000;
+    transition: 0.2s all ease-in;
+}
 
 @media (max-width: 540px) {
     .navbar2 .getYourNumber{

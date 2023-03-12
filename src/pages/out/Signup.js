@@ -1,11 +1,7 @@
 
 import React from "react";
-import logo from "../../img/logo3.png";
 import Navbar from "../../components/Navbar.js";
 import signupLogo from "../../img/Vector.png";
-import s1 from "../../img/signup1.png";
-import s2 from "../../img/signup2.png";
-import s3 from "../../img/signup3.png";
 import "../../css/Signup.css";
 import {Magic} from "magic-sdk";
 import { Navigate } from "react-router-dom";
@@ -21,6 +17,7 @@ function Signup(){
     if(localStorage.getItem("log")!="true"){
 
         async function connectWallet(){
+            document.getElementById("blockscreenid").classList.add("block_screen");
             let magic = new Magic("pk_live_509EF48473539130");
             try{
                 if(window.ethereum){
@@ -42,10 +39,12 @@ function Signup(){
                 }
                 else{
                     alert("Meta mask not detected");
+                    document.getElementById("blockscreenid").classList.remove("block_screen");
                 }
             }
             catch(err){
                 window.alert(err);
+                document.getElementById("blockscreenid").classList.remove("block_screen");
             }
         }
 
@@ -79,6 +78,8 @@ function Signup(){
                                 <Link to="/signup-with-email">Log in</Link>
                             </div>
                     </div>
+                </div>
+                <div id="blockscreenid">
                 </div>
             </>
         )

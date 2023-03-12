@@ -15,6 +15,7 @@ function Navbar(){
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
 
     const handleLogout = async() => {
+        document.getElementById("blockscreenid").classList.add("block_screen");
         await magic.user.logout();
         localStorage.setItem("log", false);
         navigate("/signup");
@@ -30,22 +31,30 @@ function Navbar(){
     }
     if(localStorage.getItem("log")=="true"){
         return(
+            <>
             <div className="navbar2">
                 <Link to="/">
                     <img src={logo}></img>
                 </Link>
                 <button id="logout" type="button" className="logout" onClick={handleLogout} >Log Out</button>
             </div>
+            <div id="blockscreenid">
+            </div>
+            </>
         )
     }
     else{
         return(
+            <>
             <div className="navbar2">
                 <Link to="/">
                     <img src={logo}></img>
                 </Link>
                 <button id="getNumber" type="button" className="getYourNumber" onClick={reqnum}>Get Your Number</button>
             </div>
+            <div id="blockscreenid">
+            </div>
+            </>
         )
     }
 

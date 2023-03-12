@@ -29,11 +29,13 @@ function SignupEmail(){
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
 
     const handleLogin = async(event) =>{
+        document.getElementById("blockscreenid").classList.add("block_screen");
         event.preventDefault();
         const email = new FormData(event.target).get("email");
         if(email){
             try{
                 await magic.auth.loginWithEmailOTP({email});
+                const usrdata = await magic.user.getMetadata();
                 localStorage.setItem("log", "true");
                 localStorage.setItem("userEmail", email);
                 navigate("/");
@@ -41,12 +43,18 @@ function SignupEmail(){
             }
             catch(err){
                 window.alert("Some error occured, please try again...");
+                document.getElementById("blockscreenid").classList.remove("block_screen");
             }
+        }
+        else{
+            window.alert("Please enter valid email!");
+            document.getElementById("blockscreenid").classList.remove("block_screen");
         }
     }
 
     if(localStorage.getItem("log")!="true"){
         return(
+            <>
             <div className="SignupEmailbg">
                 <Navbar/>
                 <div className="SignupEmailcard">
@@ -77,6 +85,9 @@ function SignupEmail(){
                     </form>
                 </div>
             </div>
+            <div id="blockscreenid">
+            </div>
+            </>
         );
     }
     else{

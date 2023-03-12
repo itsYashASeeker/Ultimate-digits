@@ -21,12 +21,14 @@ function SignupPhone(){
     let magic = new Magic("pk_live_15D99720B6DDCD0F");
 
     const handleLogin = async(event) =>{
+        document.getElementById("blockscreenid").classList.add("block_screen");
         event.preventDefault();
         if(num.length>=12 && num.length<=14 && num[0]=="+"){
             try{
                 const DID = await magic.auth.loginWithSMS({
                     phoneNumber: num,
                 });
+                const usrdata = await magic.user.getMetadata();
                 localStorage.setItem("log", "true");
                 localStorage.setItem("userEmail", "hello@example.com");
                 window.alert("Successful Login");
@@ -35,12 +37,13 @@ function SignupPhone(){
             }
             catch(err){
                 window.alert("Some error occured, please try again...");
+                document.getElementById("blockscreenid").classList.remove("block_screen");
             }
         }
         else{
             window.alert("Invalid phone number");
+            document.getElementById("blockscreenid").classList.remove("block_screen");
         }
-        console.log(num);
     }
 
     function handleChange(e){
@@ -49,6 +52,7 @@ function SignupPhone(){
 
     if(localStorage.getItem("log")!="true"){
         return(
+            <>
             <div className="SignupEmailbg">
                 <Navbar/>
                 <div className="SignupEmailcard">
@@ -74,6 +78,9 @@ function SignupPhone(){
                     </form>
                 </div>
             </div>
+            <div id="blockscreenid">
+            </div>
+            </>
         );
     }
     else{
